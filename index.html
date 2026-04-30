@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Foodiees – Order delicious food online. Fast delivery, great taste, unbeatable prices. Your favourite restaurants, just a click away." />
+  <title>Foodiees – Order Food Online</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Pacifico&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <div class="nav-logo" id="nav-logo-btn">
+        <span class="logo-icon">🍔</span>
+        <span class="logo-text">Foodiees</span>
+      </div>
+
+      <div class="nav-links" id="nav-links">
+        <a href="#" class="nav-link active" id="nav-home" onclick="showPage('home')">Home</a>
+        <a href="#" class="nav-link" id="nav-menu" onclick="scrollToMenu()">Menu</a>
+        <a href="#" class="nav-link" onclick="scrollToOffers()">Offers</a>
+        <a href="#" class="nav-link" onclick="scrollToFooter()">About</a>
+      </div>
+
+      <div class="nav-actions">
+        <div class="search-bar">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="search-input" placeholder="Search food..." oninput="filterFood(this.value)" />
+        </div>
+        <button class="cart-btn" id="cart-btn" onclick="showPage('cart')">
+          <span class="cart-icon">🛒</span>
+          <span class="cart-badge" id="cart-badge">0</span>
+        </button>
+        <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="#" onclick="showPage('home'); toggleMobileMenu()">🏠 Home</a>
+      <a href="#" onclick="scrollToMenu(); toggleMobileMenu()">🍽️ Menu</a>
+      <a href="#" onclick="scrollToOffers(); toggleMobileMenu()">🏷️ Offers</a>
+      <a href="#" onclick="scrollToFooter(); toggleMobileMenu()">ℹ️ About</a>
+      <a href="#" onclick="showPage('cart'); toggleMobileMenu()">🛒 My Cart</a>
+    </div>
+  </nav>
+
+  <!-- ===== HOME PAGE ===== -->
+  <div id="home-page" class="page active">
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="hero">
+      <div class="hero-content">
+        <div class="hero-badge">🚀 Fast Delivery in 30 min</div>
+        <h1 class="hero-title">
+          Hungry? We've Got <span class="highlight">You Covered</span>
+        </h1>
+        <p class="hero-subtitle">
+          Order from your favourite restaurants and get fresh, hot food delivered to your doorstep in minutes.
+        </p>
+        <div class="hero-search">
+          <span>📍</span>
+          <input type="text" id="hero-search" placeholder="Enter your delivery address..." />
+          <button class="hero-search-btn" onclick="scrollToMenu()">Find Food</button>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><strong>500+</strong><span>Restaurants</span></div>
+          <div class="stat-divider"></div>
+          <div class="stat"><strong>50k+</strong><span>Happy Customers</span></div>
+          <div class="stat-divider"></div>
+          <div class="stat"><strong>30 min</strong><span>Avg. Delivery</span></div>
+        </div>
+      </div>
+      <div class="hero-image">
+        <div class="hero-img-wrapper">
+          <img src="images/hero_banner.png" alt="Delicious food spread" id="hero-img" />
+          <div class="hero-floating-card card-1">
+            <span>🍔</span>
+            <div><strong>Burger King</strong><small>20 min</small></div>
+          </div>
+          <div class="hero-floating-card card-2">
+            <span>⭐</span>
+            <div><strong>4.9 Rating</strong><small>Top Rated</small></div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-scroll-indicator" onclick="scrollToMenu()">
+        <span>Scroll to explore</span>
+        <div class="scroll-arrow">↓</div>
+      </div>
+    </section>
+
+    <!-- CATEGORIES SECTION -->
+    <section class="categories-section" id="categories">
+      <div class="section-container">
+        <h2 class="section-title">Browse by <span class="highlight">Category</span></h2>
+        <div class="categories-grid">
+          <div class="category-card" onclick="filterByCategory('Indian')" id="cat-indian">
+            <div class="cat-emoji">🍛</div>
+            <span>Indian</span>
+          </div>
+          <div class="category-card" onclick="filterByCategory('Fast Food')" id="cat-fastfood">
+            <div class="cat-emoji">🍔</div>
+            <span>Fast Food</span>
+          </div>
+          <div class="category-card" onclick="filterByCategory('Italian')" id="cat-italian">
+            <div class="cat-emoji">🍕</div>
+            <span>Italian</span>
+          </div>
+          <div class="category-card" onclick="filterByCategory('Japanese')" id="cat-japanese">
+            <div class="cat-emoji">🍣</div>
+            <span>Japanese</span>
+          </div>
+          <div class="category-card" onclick="filterByCategory('Desserts')" id="cat-desserts">
+            <div class="cat-emoji">🎂</div>
+            <span>Desserts</span>
+          </div>
+          <div class="category-card" onclick="filterByCategory('Drinks')" id="cat-drinks">
+            <div class="cat-emoji">🥤</div>
+            <span>Drinks</span>
+          </div>
+          <div class="category-card" onclick="filterByCategory('')" id="cat-all">
+            <div class="cat-emoji">🍽️</div>
+            <span>All</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OFFERS BANNER -->
+    <section class="offers-section" id="offers">
+      <div class="section-container">
+        <div class="offers-grid">
+          <div class="offer-card offer-1">
+            <div class="offer-text">
+              <h3>Up to 40% OFF</h3>
+              <p>On your first order</p>
+              <button onclick="scrollToMenu()">Order Now</button>
+            </div>
+            <div class="offer-emoji">🎉</div>
+          </div>
+          <div class="offer-card offer-2">
+            <div class="offer-text">
+              <h3>Free Delivery</h3>
+              <p>On orders above ₹299</p>
+              <button onclick="scrollToMenu()">Explore</button>
+            </div>
+            <div class="offer-emoji">🛵</div>
+          </div>
+          <div class="offer-card offer-3">
+            <div class="offer-text">
+              <h3>Daily Combos</h3>
+              <p>Starting at just ₹149</p>
+              <button onclick="scrollToMenu()">View Combos</button>
+            </div>
+            <div class="offer-emoji">🍱</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOD MENU SECTION -->
+    <section class="menu-section" id="menu">
+      <div class="section-container">
+        <div class="menu-header">
+          <h2 class="section-title">Our <span class="highlight">Menu</span></h2>
+          <div class="sort-filter">
+            <select id="sort-select" onchange="sortFood(this.value)">
+              <option value="">Sort By</option>
+              <option value="price-asc">Price: Low to High</option>
+              <option value="price-desc">Price: High to Low</option>
+              <option value="rating">Top Rated</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Active filter tag -->
+        <div class="active-filter" id="active-filter" style="display:none;">
+          <span id="filter-label"></span>
+          <button onclick="filterByCategory('')">✕ Clear</button>
+        </div>
+
+        <div class="food-grid" id="food-grid">
+          <!-- Populated by JS -->
+        </div>
+
+        <div class="no-results" id="no-results" style="display:none;">
+          <div class="no-results-emoji">😕</div>
+          <h3>No items found</h3>
+          <p>Try a different search or category</p>
+          <button onclick="filterByCategory('')">Show All</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY US SECTION -->
+    <section class="why-us-section">
+      <div class="section-container">
+        <h2 class="section-title">Why Choose <span class="highlight">Foodiees?</span></h2>
+        <div class="why-us-grid">
+          <div class="why-card">
+            <div class="why-icon">⚡</div>
+            <h3>Lightning Fast</h3>
+            <p>Average delivery time of just 30 minutes. Hot food, every time.</p>
+          </div>
+          <div class="why-card">
+            <div class="why-icon">🏆</div>
+            <h3>Top Quality</h3>
+            <p>Partnered with the best restaurants in your city. Only the finest.</p>
+          </div>
+          <div class="why-card">
+            <div class="why-icon">💳</div>
+            <h3>Easy Payment</h3>
+            <p>Multiple payment options – UPI, cards, wallets, and cash on delivery.</p>
+          </div>
+          <div class="why-card">
+            <div class="why-icon">🔒</div>
+            <h3>Safe & Hygienic</h3>
+            <p>All our partners follow strict hygiene and safety standards.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- end #home-page -->
+
+
+  <!-- ===== CART PAGE ===== -->
+  <div id="cart-page" class="page">
+    <div class="cart-container">
+      <div class="cart-header-bar">
+        <button class="back-btn" onclick="showPage('home')">← Back to Menu</button>
+        <h2>Your Cart</h2>
+        <button class="clear-cart-btn" id="clear-cart-btn" onclick="clearCart()">Clear All</button>
+      </div>
+
+      <div class="cart-body" id="cart-body">
+        <!-- Cart items injected by JS -->
+      </div>
+    </div>
+  </div><!-- end #cart-page -->
+
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer" id="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <div class="footer-logo">🍔 Foodiees</div>
+        <p>Delivering happiness, one meal at a time. Fresh, fast, and always delicious.</p>
+        <div class="social-links">
+          <a href="#" class="social-btn" title="Facebook">📘</a>
+          <a href="#" class="social-btn" title="Instagram">📸</a>
+          <a href="#" class="social-btn" title="Twitter">🐦</a>
+          <a href="#" class="social-btn" title="YouTube">▶️</a>
+        </div>
+      </div>
+
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#" onclick="showPage('home')">Home</a></li>
+          <li><a href="#" onclick="scrollToMenu()">Menu</a></li>
+          <li><a href="#" onclick="scrollToOffers()">Offers</a></li>
+          <li><a href="#" onclick="showPage('cart')">My Cart</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links">
+        <h4>Cuisines</h4>
+        <ul>
+          <li><a href="#" onclick="filterByCategory('Indian')">Indian</a></li>
+          <li><a href="#" onclick="filterByCategory('Fast Food')">Fast Food</a></li>
+          <li><a href="#" onclick="filterByCategory('Italian')">Italian</a></li>
+          <li><a href="#" onclick="filterByCategory('Japanese')">Japanese</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links">
+        <h4>Contact Us</h4>
+        <ul>
+          <li>📧 hello@foodiees.in</li>
+          <li>📞 +91 98765 43210</li>
+          <li>📍 Chennai, Tamil Nadu</li>
+        </ul>
+        <div class="app-badges">
+          <button class="app-badge">📱 App Store</button>
+          <button class="app-badge">🤖 Play Store</button>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Foodiees. All rights reserved. Made with ❤️ in India.</p>
+    </div>
+  </footer>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

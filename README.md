@@ -1,3 +1,4 @@
+ HEAD
 # 🍔 Foodiees – Order Food Online
 
 > **Delivering happiness, one meal at a time.** A modern, fully responsive food delivery frontend web application built with pure HTML, CSS, and JavaScript — no frameworks, no backend required.
@@ -136,3 +137,7 @@ Try entering **`FOODIEES10`** in the cart's promo code field!
 This project is created for educational / demo purposes.
 
 © 2026 **Foodiees**. Made with ❤️ in India.
+
+# Food-Delivery-Website
+In this project of food deliver website is create an using html, css, javascript of frontend only. The purpose of this project is to develop only using the front end technology for user attractive website.
+ 2472c92faa2b163ea1b536253ededc70a98b6804
